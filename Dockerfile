@@ -11,7 +11,7 @@ RUN mkdir -p /var/log/uwsgi/app/
 
 
 RUN rm /etc/nginx/sites-enabled/default
-COPY webssh.conf /etc/nginx/sites-available/
+COPY webssh_nginx.conf /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/webssh_nginx.conf /etc/nginx/sites-enabled/webssh_nginx.conf
 COPY uwsgi.ini /var/www/app/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
