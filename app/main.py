@@ -27,7 +27,7 @@ class Application(tornado.web.Application):
 
 def main():
     init_config()
-    options.parse_config_file("webssh.conf")
+    options.parse_config_file("webssh_nginx.conf")
 
     http_server = tornado.httpserver.HTTPServer(Application())
     http_server.listen(options.port)

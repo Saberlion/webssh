@@ -12,7 +12,7 @@ RUN mkdir -p /var/log/uwsgi/app/
 
 RUN rm /etc/nginx/sites-enabled/default
 COPY webssh.conf /etc/nginx/sites-available/
-RUN ln -s /etc/nginx/sites-available/webssh.conf /etc/nginx/sites-enabled/webssh.conf
+RUN ln -s /etc/nginx/sites-available/webssh_nginx.conf /etc/nginx/sites-enabled/webssh_nginx.conf
 COPY uwsgi.ini /var/www/app/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
@@ -23,5 +23,5 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 copy app /var/www/app
 RUN pip install -r /var/www/app/requirements.txt
 
-EXPOSE 80
+EXPOSE 9527
 CMD ["/usr/bin/supervisord"]
