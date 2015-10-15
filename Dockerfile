@@ -20,8 +20,8 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-copy app /var/www/app
+copy app /var/www/appK
 RUN pip install -r /var/www/app/requirements.txt
 
-EXPOSE 80
+EXPOSE 80 8001
 CMD ["/usr/bin/supervisord"]
